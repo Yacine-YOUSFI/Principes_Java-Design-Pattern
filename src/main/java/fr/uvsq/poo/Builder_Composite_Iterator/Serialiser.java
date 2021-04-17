@@ -10,10 +10,20 @@ import java.time.format.DateTimeFormatter;
 public class Serialiser {
 
 
+
+
     public static void main (String[] args) throws FileNotFoundException {
-        Personnel ph ;
+        Personnel ph ,pg,px;
+        Personnel_groupe pgg;
+        pg = new Personnel.Builder("J", "Jacques", "Plombier").build();
+        px = new Personnel.Builder("Jj", "Jacques", "Plombier").build();
+
+        pgg= new Personnel_groupe();
+        pgg.addPersonnel(pg);
+        pgg.addPersonnel(px);
 
 
+        //Serialiser Personnel/////////////////////////////
         ph = new Personnel.Builder("Jean", "Jacques", "Plombier")
                 .dateNaissance(LocalDate.parse("1970-01-01", DateTimeFormatter.ISO_DATE)).build();
         System.out.println(ph);
@@ -32,9 +42,29 @@ public class Serialiser {
             e.printStackTrace();
         }
 
+        //Serialiser Groupe_Personnel/////////////////
+
+        try {
+            FileOutputStream fo= new FileOutputStream("pers_grp.ser");
+            ObjectOutputStream ops= new ObjectOutputStream(fo);
+
+            ops.writeObject(pgg);
+
+            ops.close();
+
+        }catch (FileNotFoundException e){
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
 
     }
 
+
+
+
+}
 
 
 
