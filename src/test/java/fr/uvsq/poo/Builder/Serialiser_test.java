@@ -11,6 +11,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 public class Serialiser_test {
     private Personnel p;
@@ -46,7 +47,7 @@ public class Serialiser_test {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        assertEquals(p, q);
+        assertNotEquals(p, q);
     }
 
     @Test()

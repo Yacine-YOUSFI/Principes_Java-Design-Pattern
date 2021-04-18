@@ -10,15 +10,13 @@ import java.time.format.DateTimeFormatter;
 public class Serialiser {
 
 
-
-
-    public static void main (String[] args) throws FileNotFoundException {
-        Personnel ph ,pg,px;
+    public static void main(String[] args) throws FileNotFoundException {
+        Personnel ph, pg, px;
         Personnel_groupe pgg;
         pg = new Personnel.Builder("J", "Jacques", "Plombier").build();
         px = new Personnel.Builder("Jj", "Jacques", "Plombier").build();
 
-        pgg= new Personnel_groupe();
+        pgg = new Personnel_groupe();
         pgg.addPersonnel(pg);
         pgg.addPersonnel(px);
 
@@ -29,14 +27,14 @@ public class Serialiser {
         System.out.println(ph);
 
         try {
-            FileOutputStream fos= new FileOutputStream("pers.ser");
-            ObjectOutputStream ops= new ObjectOutputStream(fos);
+            FileOutputStream fos = new FileOutputStream("pers.ser");
+            ObjectOutputStream ops = new ObjectOutputStream(fos);
 
             ops.writeObject(ph);
 
             ops.close();
 
-        }catch (FileNotFoundException e){
+        } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
@@ -45,14 +43,14 @@ public class Serialiser {
         //Serialiser Groupe_Personnel/////////////////
 
         try {
-            FileOutputStream fo= new FileOutputStream("pers_grp.ser");
-            ObjectOutputStream ops= new ObjectOutputStream(fo);
+            FileOutputStream fo = new FileOutputStream("pers_grp.ser");
+            ObjectOutputStream ops = new ObjectOutputStream(fo);
 
             ops.writeObject(pgg);
 
             ops.close();
 
-        }catch (FileNotFoundException e){
+        } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
@@ -68,5 +66,5 @@ public class Serialiser {
 
 
 
-}
+
 
