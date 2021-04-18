@@ -7,15 +7,14 @@ import java.util.UUID;
 
 public class Personnel_groupe implements PersonnelInterface, Serializable {
     private final List<PersonnelInterface> personnelInterace;
-    private UUID id;
-
+    private static final long serialVersionUID = 1L;
+    private String identifier;
     public Personnel_groupe() {
         personnelInterace = new ArrayList<PersonnelInterface>();
-
     }
     public Personnel_groupe(String id) {
         personnelInterace = new ArrayList<PersonnelInterface>();
-        this.id = UUID.fromString(id);
+        this.identifier = id;
     }
     public void addPersonnel(PersonnelInterface p) {
         personnelInterace.add(p);
@@ -30,11 +29,13 @@ public class Personnel_groupe implements PersonnelInterface, Serializable {
 
     }
     public String getId(){
-        return id.toString();
+
+        return identifier.toString();
     }
 
     @Override
     public String Afficher() {
+
         return  "Plusieurs personnes";
     }
 }
