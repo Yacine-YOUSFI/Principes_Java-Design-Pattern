@@ -9,6 +9,11 @@ public abstract class Iterator_structure implements Iterator<PersonnelInterface>
     private Personnel_groupe racine;
     protected Collection<PersonnelInterface> collection;
 
+    /**
+     *
+     * @param personnelGroupe
+     * @param collection
+     */
     public Iterator_structure(Personnel_groupe personnelGroupe,Collection<PersonnelInterface> collection) {
         this.racine = personnelGroupe;
         this.collection = collection;
@@ -34,7 +39,13 @@ public abstract class Iterator_structure implements Iterator<PersonnelInterface>
 
         abstract protected PersonnelInterface getCollection();
 
+    /**
+     *
+     * @return racine
+     *
+     */
         public PersonnelInterface getRacine() {
+
             return racine;
         }
     }

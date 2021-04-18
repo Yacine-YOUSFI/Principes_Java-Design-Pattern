@@ -12,10 +12,10 @@ public enum MainSerialisation {
         InterfaceDAO<Personnel> PDAO = DAOFactory.getPersonneldao();
 
         InterfaceDAO<Personnel_groupe> CDAO = DAOFactory.getPersonnelgrpdao();
-
-        Personnel NADJIB = new Personnel.Builder("YOUSFI", "Yacine", "DATASCALE").build();
-
-        Personnel FARID = new Personnel.Builder("YSF", "YCN", "etudiant").build();
+    //Creation de l'objet yacine
+        Personnel yacine = new Personnel.Builder("YOUSFI", "Yacine", "DATASCALE").build();
+//Creation de l'objet ycn
+        Personnel ycn = new Personnel.Builder("YSF", "YCN", "etudiant").build();
 
         Personnel_groupe personnalGroup = new Personnel_groupe("personnalGroup");
 
@@ -23,9 +23,9 @@ public enum MainSerialisation {
 
         personnalGroup.addPersonnel(souspersonnalgroup);
 
-        personnalGroup.addPersonnel(NADJIB);
+        personnalGroup.addPersonnel(yacine);
 
-        souspersonnalgroup.addPersonnel(FARID);
+        souspersonnalgroup.addPersonnel(ycn);
 
         System.out.println("Creation de PersonnalGroup:");
 
@@ -35,9 +35,9 @@ public enum MainSerialisation {
 
         CDAO.create(souspersonnalgroup);
 
-        PDAO.create(NADJIB);
+        PDAO.create(yacine);
 
-        PDAO.create(FARID);
+        PDAO.create(ycn);
 
         System.out.println("\t" + CDAO.read(souspersonnalgroup.getId()));
 
