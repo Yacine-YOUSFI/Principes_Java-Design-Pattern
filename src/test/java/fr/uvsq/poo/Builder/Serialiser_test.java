@@ -89,7 +89,7 @@ public class Serialiser_test {
         pgc.create(pg);
         pg.addPersonnel(p);
         pgc.update(pg);
-        assertNotEquals(pg, pgc.read(pg.getId()));
+        assertEquals(pg, pgc.read(pg.getId()));
     }
 
 
